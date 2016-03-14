@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en" class="windowRoot">
+<head> 
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>InfoVis A8</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="bootstrap.min.css" />
+<link rel="stylesheet" href="jquery-jvectormap-2.0.3.css" type="text/css" media="screen"/>
+
+<script type="text/javascript" src="migrationData.json.js"></script>	
+<script type="text/javascript" src="countryData.json.js"></script>
+
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<script type="text/javascript" src="jquery-jvectormap.js"></script>
+<script type="text/javascript" src="d3.v2.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+
+<script src="jquery-jvectormap-europe_mill.js"></script>
+<script src="jquery.vmap-europe_en.js"></script>
+
+<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body id="body" onload="init()" style="background:none; width: 100%; height: 100%;">
+	<div id="theTooltip" class="theTooltip" style="visibility: hidden;"></div>
+  <div id="wrapperDiv" style="background:gray; width: 100%; height: 100%;">
+
+  	<div id="world-map" style="height: 100vh; width: 100vw; display: block"></div>
+	<script>
+		$(function(){
+	    	// $('#world-map').vectorMap({map: 'europe_mill',
+	    	// });
+			$('#world-map').vectorMap({map: 'europe_en',
+				zoomMax: 16,
+				zoomMin: 0.5,
+				zoomStep: 1.25,
+				zoomAnimate: true
+			});
+
+	  	});
+	</script>
+
+	<div id="uiContainer" style="position:absolute; overflow: visible; z-index: 9999; height: 30%; width: 10%; top: 30%;">
+
+<!-- 		<div>
+			<input type="radio" name="radio" id="radio0" class="radio" onclick="setTimeStep(-1)"/>
+			<label for="radio0">All Timesteps</label>
+		</div> -->
+		
+		<div>
+			<input type="radio" name="radio" id="radio1" class="radio" onclick="setTimeStep(0)" checked="checked" />
+			<label for="radio1">TimeStep 1</label>
+		</div>
+		
+		<div>
+			<input type="radio" name="radio" id="radio2" class="radio" onclick="setTimeStep(1)"/>
+			<label for="radio2">TimeStep 2</label>
+		</div>
+		
+		<div>
+			<input type="radio" name="radio" id="radio3" class="radio" onclick="setTimeStep(2)"/>
+			<label for="radio3">TimeStep 3</label>
+		</div>
+		
+		<div>
+			<input type="radio" name="radio" id="radio4" class="radio" onclick="setTimeStep(3)"/>
+			<label for="radio4">TimeStep 4</label>
+		</div>
+		
+		<div>
+			<input type="radio" name="radio" id="radio5" class="radio" onclick="setTimeStep(4)"/>
+			<label for="radio5">TimeStep 5</label>
+		</div>
+
+		<div>
+			<input type="button" name="drawAll" id="drawAll" class="radio" onclick="drawAll()"/>
+			<label for="drawAll">Select All Countries</label>
+		</div>
+
+		<div>
+			<input checked="true" type="checkbox" name="emigration" id="emigration" class="radio" onclick="toggleEmigration()"/>
+			<label for="emigration">Show Emigration</label>
+		</div>
+		
+		<div>
+			<input checked="true" type="checkbox" name="immigration" id="immigration" class="radio" onclick="toggleImmigration()"/>
+			<label for="immigration">Show Immigration</label>
+		</div>
+
+		<div>
+			<input type="checkbox" name="minimumLineWidth" id="minimumLineWidth" class="radio" onclick="toggleMinimumLineWidth()"/>
+			<label for="minimumLineWidth">Minor Data Entries</label>
+		</div>
+
+	</div>
+
+  </div>
+</body>
+
+</html>
